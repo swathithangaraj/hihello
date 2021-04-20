@@ -17,6 +17,7 @@ phases:
       - ng build --prod --aot
   post_build:
      commands:
+      - current_timestamp=$(date +"%s")
       - aws s3 cp dist s3://${S3_BUCKET}/Inhouse/${current_timestamp} --recursive
       - echo Build completed on `date`
 artifacts:

@@ -1,27 +1,32 @@
 version: 0.2
+
 env:
-  variables:
-    S3_BUCKET: "sampleangular1245"
+    variables:
+        CACHE_CONTROL: "86400"
+        S3_BUCKET: "sampleangular1245"
+        BUILD_FOLDER: "dist"
 phases:
   install:
     runtime-versions:
-      nodejs: 10
+        nodejs: 12
   pre_build:
     commands:
-      - echo Installing source NPM dependencies...
-      - npm install
-      - npm install -g @angular/cli
+        - echo Installing source NPM dependencies...
+        - npm install
+        - npm install -g @angular/cli
+        - TIME=$(date +"%Y%m%d_%H%M%S")
   build:
     commands:
-      - echo Build started on `date`
-      - ng build --prod --aot
+        - echo Build started
+        - ng build
+        - echo Unit Test started
+        - npm test
   post_build:
-     commands:      
-      - aws s3 cp dist s3://${S3_BUCKET} --recursive
-      - echo Build completed on `date`
+    commands:
+      - echo "Uploading dist folder to s3"
+      - aws s3 cp dist s3://${S3_BUCKET}/${TIME}
 artifacts:
-  files:
-      - '**/*'
-  name: myname-$(date +%Y-%m-%d) 
-  base-directory: 'dist*'
-  discard-paths: yes
+    files:
+        - '**/*'
+    base-directory: 'dist*'
+    discard-paths: yes

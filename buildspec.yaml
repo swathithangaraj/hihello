@@ -23,8 +23,8 @@ phases:
         
   post_build:
     commands:
-      - cd dist
-      - zip -r ${TIME}.zip .      
+      - mv -f dist  ${TIME} 
+      - zip -r ${TIME}.zip ${TIME}      
       - echo "Uploading dist folder to s3"
       - aws s3 cp {TIME}.zip s3://${S3_BUCKET}/${TIME}.zip --recursive
 artifacts:

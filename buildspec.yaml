@@ -19,8 +19,8 @@ phases:
     commands:
         - echo Build started
         - ng build
-        - echo Unit Test started
-        - npm test
+       
+        
   post_build:
     commands:
       - echo "Uploading dist folder to s3"

@@ -33,6 +33,7 @@ phases:
         - echo Build started
         - ng lint
         - ng build
+        - ng test
        
         
        

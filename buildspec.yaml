@@ -36,14 +36,9 @@ phases:
         - ng build
         - echo testing started
         - ng test -- --browsers=ChromeHeadlessCI
-        - echo $CODEBUILD_BUILD_SUCCEEDING
-        
-        
-       
-        
-
-      - echo "Uploading dist folder to s3"
-      - aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER --recursive
+        - echo $CODEBUILD_BUILD_SUCCEEDING     
+        - echo "Uploading dist folder to s3"
+        - aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER --recursive
 artifacts:
     files:
         - '**/*'

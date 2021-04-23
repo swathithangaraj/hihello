@@ -5,6 +5,7 @@ env:
         CACHE_CONTROL: "86400"
         S3_BUCKET: "sampleangular1245"
         BUILD_FOLDER: "dist"
+       
 phases:
   install:
     runtime-versions:
@@ -15,6 +16,8 @@ phases:
         - npm install
         - npm install -g @angular/cli
         - TIME=$(date +"%Y%m%d_%H%M%S")
+        - Build number = $(Build number)
+        - echo "$ Build number" 
   build:
     commands:
         - echo Build started

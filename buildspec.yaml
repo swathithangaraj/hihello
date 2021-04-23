@@ -39,12 +39,12 @@ phases:
   post_build:      
     commands: |
     
-       if [ "$CODEBUILD_BUILD_SUCCEEDING" == "0" ]; then
-       echo "!!!!!!! Error in Unit Testing !!!!!!"
-       exit 1
-       fi
-       echo "Uploading dist folder to s3"
-       aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER --recursive
+        if [ "$CODEBUILD_BUILD_SUCCEEDING" == "1" ]; then
+        echo "Uploading Artifacts to S3"
+        aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER --recursive
+        fi
+        echo "Error in Unit Test"
+      
 artifacts:
     files:
         - '**/*'

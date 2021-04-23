@@ -36,14 +36,15 @@ phases:
         - ng build
         - echo testing started
         - unit_test_results=$(ng test -- --browsers=ChromeHeadlessCI)
-        - if [ $(echo $unit_test_results | grep "ERROR" | wc -l) != 0 ]; then exit 1 ; fi
-       
+        - if [ $(echo $unit_test_results | grep "ERROR" | wc -l) != 0 ]; then exit 1 ; fi           
         
        
         
-  post_build:
+  post_build:   
+    job:
+     artifacts:
+       when: on_success  
     commands:
-           
       - echo "Uploading dist folder to s3"
       - aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER --recursive
 artifacts:

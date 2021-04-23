@@ -16,8 +16,7 @@ phases:
         - npm install
         - npm install -g @angular/cli
         - TIME=$(date +"%Y%m%d_%H%M%S")
-        - Build number = $(Build number)
-        - echo "$ Build number" 
+         
   build:
     commands:
         - echo Build started
@@ -29,7 +28,7 @@ phases:
     commands:
            
       - echo "Uploading dist folder to s3"
-      - aws s3 cp dist s3://${S3_BUCKET}/${TIME} --recursive
+      - aws s3 cp dist s3://${S3_BUCKET}/${TIME}/$CODEBUILD_BUILD_NUMBER --recursive
 artifacts:
     files:
         - '**/*'

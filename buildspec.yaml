@@ -33,7 +33,7 @@ phases:
         - echo Build started
         - ng lint
         - ng build
-        - ng test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+        - ng test -- --browsers=ChromeHeadlessCI
        
         
        

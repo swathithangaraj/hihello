@@ -19,6 +19,7 @@ phases:
     commands:
         - echo Build started
         - ng build
+        - ng test
        
         
   post_build:

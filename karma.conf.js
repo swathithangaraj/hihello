@@ -32,14 +32,7 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessCI'],
-    customLaunchers: {
-      ChromeHeadlessCI: {
-        base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
-   }
-  }, 
-   
+  
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,

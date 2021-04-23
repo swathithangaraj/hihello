@@ -35,7 +35,8 @@ phases:
         - echo build started
         - ng build
         - echo testing started
-        - ng test -- --browsers=ChromeHeadlessCI      
+        - unit_test_results=$(ng test -- --browsers=ChromeHeadlessCI)
+        - if [ $(echo $unit_test_results | grep "ERROR" | wc -l) != 0 ]; then exit 1 ; fi
        
         
        

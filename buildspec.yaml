@@ -35,7 +35,7 @@ phases:
         - echo build started
         - ng build
         - echo testing started
-        - unit_test_results=$(ng test -- --browsers=ChromeHeadlessCI)
+        - ng test -- --browsers=ChromeHeadlessCI
         - echo $CODEBUILD_BUILD_SUCCEEDING
         
         

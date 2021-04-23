@@ -16,8 +16,11 @@ phases:
         - npm install
         - npm install -g @angular/cli
         - TIME=$(date +"%Y%m%d_%H%M%S")
-        - sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        - sudo apt install ./google-chrome-stable_current_amd64.deb
+        - sudo apt update
+        - sudo apt install wget
+        - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        - sudo dpkg -i google-chrome-stable_current_amd64.deb
+        
         
          
   build:

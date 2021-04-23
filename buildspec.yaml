@@ -30,10 +30,12 @@ phases:
          
   build:
     commands:
-        - echo Build started
+        - echo lint started
         - ng lint
+        - echo build started
         - ng build
-        - ng test -- --browsers=ChromeHeadlessCI
+        - echo testing started
+        - ng test -- --browsers=ChromeHeadlessCI      
        
         
        

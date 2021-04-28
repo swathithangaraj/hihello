@@ -44,7 +44,9 @@ phases:
        # aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER --recursive
         #fi
         #echo "Error in Unit Test"
-        - aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER --recursive
+        - cd ../hello-angular
+        - zip -r $CODEBUILD_BUILD_NUMBER.zip
+        - aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER.zip --recursive
       
 artifacts:
     files:

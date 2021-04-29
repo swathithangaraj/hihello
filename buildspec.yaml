@@ -52,7 +52,7 @@ phases:
         #- mv codebuild.zip $CODEBUILD_BUILD_NUMBER.zip
         - cp -r scripts dist/hello-angular/
         - cp appspec.yml dist/hello-angular/
-        - zip -r codebuild.zip dist/hello-angular/
+        - zip -r codebuild.zip dist/hello-angular/*
         - ls -a
         - mv codebuild.zip $CODEBUILD_BUILD_NUMBER.zip
         - ls -a

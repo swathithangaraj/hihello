@@ -3,7 +3,7 @@ os: linux
 files:
   - source: hello-angular/index.html
     destination: /var/www/html
-    override: yes
+    overwrite: yes
 hooks:
   AfterInstall:
     - location: scripts/restart_server.sh

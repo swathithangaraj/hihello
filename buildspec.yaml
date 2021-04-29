@@ -56,7 +56,7 @@ phases:
         - cp -r dist/hello-angular/* codebuild
         #- zip -r codebuild.zip codebuild/*
         - ls -a
-        - zip -r $CODEBUILD_BUILD_NUMBER.zip codebuild/*
+        - zip -r -j $CODEBUILD_BUILD_NUMBER.zip codebuild/*
         - ls -a
         - aws s3 cp $CODEBUILD_BUILD_NUMBER.zip s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER.zip 
       

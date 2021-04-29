@@ -46,12 +46,13 @@ phases:
         #echo "Error in Unit Test"
         #- cd hihello
         #- whereis hihello
-        - zip -r codebuild.zip . -i hihello
+        - cd hihello
+        - zip -r codebuild.zip
         #- mv codebuild.zip $CODEBUILD_BUILD_NUMBER.zip
         - cp -r scripts dist/hello-angular/
         - cp appspec.yml dist/hello-angular/
         - mv codebuild.zip $CODEBUILD_BUILD_NUMBER.zip
-        - aws s3 cp $CODEBUILD_BUILD_NUMBER.zip s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER.zip --recursive
+        - aws s3 cp ./$CODEBUILD_BUILD_NUMBER.zip s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER.zip --recursive
       
 artifacts:
     files:

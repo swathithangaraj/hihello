@@ -4,6 +4,6 @@ files:
   - source: hello-angular/index.html
     destination: /var/www/html
 hooks:
-  BeforeInstall:
-    - location: scripts/
+  AfterInstall:
+    - location: scripts/restart_server.sh
     

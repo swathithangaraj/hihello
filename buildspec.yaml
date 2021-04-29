@@ -45,7 +45,9 @@ phases:
         #fi
         #echo "Error in Unit Test"
         #- cd hihello
-        - zip -r $CODEBUILD_BUILD_NUMBER.zip hihello
+        - whereis hihello
+        - zip -r codebuild.zip hihello
+        - mv codebuild.zip $CODEBUILD_BUILD_NUMBER.zip
         - aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER.zip --recursive
       
 artifacts:

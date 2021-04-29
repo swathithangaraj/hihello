@@ -6,7 +6,7 @@ files:
     overwrite: yes
 hooks:
   BeforeInstall:
-    - location: remove.sh   
+    - location: script/remove.sh   
   AfterInstall:
     - location: restart_server.sh
     

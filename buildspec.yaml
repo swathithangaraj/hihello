@@ -48,8 +48,8 @@ phases:
         #- whereis hihello
         #- zip -r codebuild.zip hihello
         #- mv codebuild.zip $CODEBUILD_BUILD_NUMBER.zip
-        - cp -r scripts dist/hello-angular
-        - cp appspec.yml dist/hello-angular
+        - cp -r scripts dist/hello-angular/
+        - cp appspec.yml dist/hello-angular/
         - aws s3 cp dist/hello-angular s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER.zip --recursive
       
 artifacts:

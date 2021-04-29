@@ -6,7 +6,7 @@ files:
     overwrite: yes
 hooks:
   BeforeInstall:
-    - location: scripts/remove.sh   
+    - location: hello-angular/scripts/remove.sh   
   AfterInstall:
-    - location: scripts/restart_server.sh
+    - location: hello-angular/scripts/restart_server.sh
     

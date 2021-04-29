@@ -46,8 +46,9 @@ phases:
         #echo "Error in Unit Test"
         #- cd hihello
         #- whereis hihello
-        - cd hihello
-        - zip -r codebuild.zip
+        - pwd   
+        - ls -a
+        - zip -r codebuild.zip hihello
         #- mv codebuild.zip $CODEBUILD_BUILD_NUMBER.zip
         - cp -r scripts dist/hello-angular/
         - cp appspec.yml dist/hello-angular/

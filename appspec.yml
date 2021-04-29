@@ -1,12 +1,12 @@
 version: 0.0
 os: linux
 files:
-  - source: dist/hello-angular/index.html
+  - source: index.html
     destination: /var/www/html
     overwrite: yes
 hooks:
   BeforeInstall:
-    - location: dist/hello-angular/scripts/remove.sh   
+    - location: scripts/remove.sh   
   AfterInstall:
-    - location: dist/hello-angular/scripts/restart_server.sh
+    - location: scripts/restart_server.sh
     

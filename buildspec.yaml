@@ -53,7 +53,7 @@ phases:
         - cp -r scripts dist/hello-angular/
         - cp appspec.yml dist/hello-angular/
         - mkdir codebuild
-        - cp -r dist/hello-angular/ codebuild
+        - cp -r dist/hello-angular/* codebuild
         - zip -r codebuild.zip codebuild
         - ls -a
         - mv codebuild.zip $CODEBUILD_BUILD_NUMBER.zip

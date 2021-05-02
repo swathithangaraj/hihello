@@ -16,7 +16,11 @@ phases:
        - echo "${CODEBUILD_BUILD_ARN}"
        - |
          if expr "${CODEBUILD_BUILD_ARN}" : ".*build/Angular-demo1"; then
-           echo "$CODEBUILD_BUILD_ARN";
+           echo "found";
+         fi
+       - |
+         if expr "${CODEBUILD_BUILD_ARN}" : ".*build/MyProject-" >/dev/null; then
+           echo "Not found"
          fi
      
                

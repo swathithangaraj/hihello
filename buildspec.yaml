@@ -28,13 +28,11 @@ phases:
         - sed -i 's|# exec -a "$0" "$HERE/chrome" "$@"|/exec -a "$0" "$HERE/chrome" "$@"  --no-sandbox|g' /usr/bin/google-chrome
         #- echo " $CODEBUILD_BUILD_ID"
   build:
-    commands:
-      - |
+    commands:|
         if expr "${CODEBUILD_BUILD_ARN}" : ".*build/Angular-demo1-" >/dev/null; then
           #yarn run build-dev;
         echo "$CODEBUILD_BUILD_ARN";
         fi
-      - |
         if expr "${CODEBUILD_BUILD_ARN}" : ".*build/MyProject-" >/dev/null; then
           #yarn run build-prod;
         echo "not found"

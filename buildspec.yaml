@@ -17,7 +17,7 @@ phases:
        - |
          if expr "${CODEBUILD_BUILD_ARN}" : ".*build/Angular-demo1"; then
            sed -i 's|/var/www/html|/var/www/dev/html|g' appspec.yml
-           aws s3 cp $CODEBUILD_BUILD_NUMBER.zip s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER.zip
+           #aws s3 cp $CODEBUILD_BUILD_NUMBER.zip s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER.zip
          fi
        - |
          if expr "${CODEBUILD_BUILD_ARN}" : ".*build/MyProject-" >/dev/null; then
@@ -57,7 +57,7 @@ phases:
        # - ls -a
         #- zip -r -j $CODEBUILD_BUILD_NUMBER.zip codebuild/*
         #- ls -a
-        #- aws s3 cp $CODEBUILD_BUILD_NUMBER.zip s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER.zip 
+        - aws s3 cp $CODEBUILD_BUILD_NUMBER.zip s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER.zip 
       
 artifacts:
     files:

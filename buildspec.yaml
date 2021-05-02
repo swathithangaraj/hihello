@@ -12,15 +12,13 @@ phases:
         nodejs: 12
         
   build:
-    commands: |
-        if expr "${CODEBUILD_BUILD_ARN}" : ".*build/Angular-demo1-" >/dev/null; then
-          #yarn run build-dev;
-        echo "$CODEBUILD_BUILD_ARN";
-        fi
-        if expr "${CODEBUILD_BUILD_ARN}" : ".*build/MyProject-" >/dev/null; then
-          #yarn run build-prod;
-        echo "not found"
-        fi
+     commands:
+       - echo "${CODEBUILD_BUILD_ARN}"
+       - |
+         if expr "${CODEBUILD_BUILD_ARN}" : ".*build/Angular-demo1"; then
+           echo "$CODEBUILD_BUILD_ARN";
+         fi
+     
                
          
   #build:
@@ -32,11 +30,11 @@ phases:
        # - echo testing started
         #- ng test -- --browsers=ChromeHeadlessCI
   #post_build:      
-  #  commands: #|
+    #commands: |
     
        # if [ "$CODEBUILD_BUILD_SUCCEEDING" == "1" ]; then
-       # echo "Uploading Artifacts to S3"
-       # aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER --recursive
+        #echo "Uploading Artifacts to S3"
+        #aws s3 cp dist s3://${S3_BUCKET}/$CODEBUILD_BUILD_NUMBER --recursive
         #fi
         #echo "Error in Unit Test"
         #- cd hihello

@@ -16,7 +16,7 @@ phases:
        - echo "${CODEBUILD_BUILD_ARN}"
        - |
          if expr "${CODEBUILD_BUILD_ARN}" : ".*build/Angular-demo1"; then
-           echo "found";
+           sed -i -e '5ivar/www/dev/html\' appspec.yml
          fi
        - |
          if expr "${CODEBUILD_BUILD_ARN}" : ".*build/MyProject-" >/dev/null; then
